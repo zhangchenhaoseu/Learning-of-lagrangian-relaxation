@@ -77,7 +77,7 @@ class Dual_Problem():  # 对偶问题
     def subgradient(self):  # 输出乘子对应的梯度
         self.subgradient = np.zeros(self.constraints_n)  # 乘子的次梯度，作为方向
         for i in range(0, self.constraints_n):
-            self.subgradient[i] = np.dot(self.results, self.constraint_coeff[i, :])
+            self.subgradient[i] = np.dot(self.results, self.constraint_coeff[i, :])+ self.object_constant[i]
 
     def update_stepsize(self):  # 按照公式输出新的步长
         linear_results_lst = []
